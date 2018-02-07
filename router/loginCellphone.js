@@ -2,6 +2,7 @@ const express = require("express");
 const crypto = require("crypto");
 const router = express();
 const { createWebAPIRequest } = require("../util/util");
+const path = require("path");
 
 router.get("/", (req, res) => {
   const phone = req.query.phone;
@@ -28,7 +29,18 @@ router.get("/", (req, res) => {
       res.set({
         "Set-Cookie": cookie
       });
-      res.send(music_req);
+      // res.send(music_req);
+      const jsonObj = JSON.parse(music_req);
+
+      if (jsonObj.code && jsonObj.code === 200) {
+        console.log("login success");
+        // show likedList.html
+
+        let file = path.join(path.dirname(__dirname), "/public/likedList.html");
+        res.sendFile(file);
+      } else {
+        console.log("login fail");
+      }
     },
     err => res.status(502).send("fetch error")
   );
