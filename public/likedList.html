@@ -7,13 +7,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
-    <script src="/script/login.js"></script>
+    <script src="/script/likedList.js"></script>
     <title>网易云音乐 你赞过的评论</title>
 </head>
 
 <body>
     <h1>你赞过的评论</h1>
+    <label for="sid">输入要查询的歌曲id</label>
+    <input type="text" name="sid">
+    <button type="submit" onclick="handleClick()">查询评论</button>
+    <table>
+        <thead>
+            <tr>
+                <td>头像</td>
+                <td>用户名</td>
+                <td>评论</td>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
 
+    </table>
     <style>
         html,
         body {
@@ -29,6 +44,15 @@
 
         * {
             color: rgb(100, 100, 100);
+        }
+
+        table {
+            width: 100vw;
+        }
+
+        table td img {
+            width: 50px;
+            height: 50px;
         }
     </style>
 
